@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <script src="https://www.papaparse.com/resources/js/papaparse.js"></script>
+</head>
+<body>
+
+    <div>
+        <h3>Compare Two CSV Files</h3>
+        <div class="container">
+            <div>
+                <input type="file" class="fileInput" accept=".csv" />
+            </div>
+            <div>
+                <input type="file" class="fileInput1" accept=".csv" />
+            </div>
+        </div>
+        <button onclick='parseCSV()'>Compare</button>
+    </div>
+    
+    
+
+    
+
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+            <tr id="renderTableHead">
+                
+            </tr>
+        </thead>
+        <tbody id="renderTableBody">
+
+        </tbody>
+    </table>
+
+
+<script src="index.js"></script>
+</body>
+</html>

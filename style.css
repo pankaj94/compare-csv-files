@@ -1,0 +1,39 @@
+.red{
+    background-color: red
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container div {
+    padding: 80px 0px 80px 100px;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin: 25px;
+}
+h3{
+    font-size: 30px;
+    text-align: center;
+    color: #6bb1a7;
+}
+button{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 20px;
+    width: 300px;
+    color: white;
+    background-color: #6bb1a7;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+th,td {
+    padding: 5px;
+    border: 1px solid #6bb1a7;
+    text-align: center;
+}

@@ -1,47 +1,33 @@
 var obj1 = [];
 var obj2 = [];
 var myRows = [];
+function parseFile(file){
+    newData = [];
+    Papa.parse(file.files[0], {
+        download: true,
+        header: true,
+        keepEmptyRows: false,
+        skipEmptyLines: true,
+        step: function(row) {
+            //  push the row data into the array
+            newData.push(row.data);
+        },
+        complete: function(results) {
+            return newData;
+        }
+    });
+    return newData;
+}
 var parseCSV = function(){
-myRows = [];
+    myRows = [];
     var fileInput = document.querySelector('.fileInput');
         fileInput.addEventListener('change', function(){
-            var newData = [];
-            Papa.parse(fileInput.files[0], {
-                download: true,
-                header: true,
-                keepEmptyRows: false,
-                skipEmptyLines: true,
-                step: function(row) {
-                    //  push the row data into the array
-                    newData.push(row.data);
-                },
-                complete: function(results) {
-                    console.log(JSON.parse(JSON.stringify(newData)));
-                    obj1 = newData;
-                    return obj1;
-                }
-            });
-            return obj1;
+           obj1 =  parseFile(fileInput)
         });
     
     var fileInput1 = document.querySelector('.fileInput1');
     fileInput1.addEventListener('change', function(){
-        var newData = [];
-        Papa.parse(fileInput1.files[0], {
-            download: true,
-            header: true,
-            keepEmptyRows: false,
-            skipEmptyLines: true,
-            step: function(row) {
-                //  push the row data into the array
-                newData.push(row.data);
-            },
-            complete: function(results) {
-                console.log(JSON.parse(JSON.stringify(newData)));
-                obj2 = newData;
-                return obj2;
-            }
-        });
+        obj2 = parseFile(fileInput1);
         return obj2;
     });
 
@@ -68,21 +54,9 @@ myRows = [];
         }
         
     })
-    console.log(myRows);
     renderTable();
-    // if(Object.keys(obj1).length==Object.keys(obj2).length){
-    //     for(key in obj1) { 
-    //         if(obj1[key] == obj2[key]) {
-    //             myRows.push({key : obj1[key]});
-    //             continue;
-    //         }
-    //         else {
-    //             myRows.push({key : obj1[key],'flag' : false});
-    //         }
-    //     }
-    // }
 }
-console.log(parseCSV());
+parseCSV();
 function renderTable(){
     let tableHead = document.getElementById('renderTableHead');
     let innerTableHead = '';

@@ -22,11 +22,13 @@ var parseCSV = function(){
     myRows = [];
     var fileInput = document.querySelector('.fileInput');
         fileInput.addEventListener('change', function(){
+            obj1 = [];
            obj1 =  parseFile(fileInput)
         });
     
     var fileInput1 = document.querySelector('.fileInput1');
     fileInput1.addEventListener('change', function(){
+        obj2 = [];
         obj2 = parseFile(fileInput1);
         return obj2;
     });
